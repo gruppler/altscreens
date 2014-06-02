@@ -1,0 +1,5 @@
+*.sublime-project
+*.sublime-workspace
+lib/db.auth.php
+push.sh
+

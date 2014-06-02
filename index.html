@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html manifest="index.appcache">
+  <head>
+    <meta charset="utf8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+
+    <title>Alt Screens</title>
+
+    <link rel="stylesheet" href="css/topcoat/css/topcoat-mobile-dark.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/icons/icomatic.css">
+    <script src="css/icons/icomatic.js"></script>
+
+    <script src="js/lib/jquery-1.11.0.min.js"></script>
+    <script src="js/lib/jquery.h5validate.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+    <script src="js/lib/backbone.dualstorage.js"></script>
+    <script src="js/lib/jquery.hammer-full.min.js"></script>
+    <script src="js/lib/seedrandom.js"></script>
+    <script src="js/lib/latinsquare.js"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/participant.js"></script>
+    <script src="js/concept.js"></script>
+    <script src="js/rating.js"></script>
+    <script src="js/weight.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+
+    <div id="page-welcome" class="page box-center-col">
+
+      <h1 class="big">Welcome</h1>
+
+      <a href="#intro" class="topcoat-button--large">
+        Begin
+        <span class="topcoat-icon icomatic">next</span>
+      </a>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-intro" class="page">
+
+      <p class="instructions">
+        Thank you for participating in our survey today!
+      </p>
+      <p class="instructions">
+        Today we will ask for your opinions on vehicle infotainment screens.
+      </p>
+      <p class="instructions">
+        There are five parts and it will take approximately 20 minutes. If you have questions at any point during the survey, please ask the survey staff.
+      </p>
+
+      </p>
+
+      <p class="center">
+        <a href="#new" class="topcoat-button--large next">
+          Next
+          <span class="topcoat-icon icomatic">next</span>
+        </a>
+      </p>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-new-participant" class="page">
+
+      <p class="instructions">
+        Please provide the following information.
+      </p>
+      <p class="instructions">
+        Your identity will remain confidential, and will be used for logistical and organizational purposes only.
+      </p>
+
+      <form action="#">
+
+        <p>
+          <input type="text" name="name" size="50" class="topcoat-text-input full" placeholder="First Name" value="" autocomplete="off" required>
+        </p>
+
+        <p>
+          <input type="number" name="age" size="6" min="18" max="99" class="topcoat-text-input" placeholder="Age" value="" autocomplete="off" required>
+        </p>
+
+        <div class="box-center">
+          <label class="topcoat-radio-button">
+            <input type="radio" name="gender" value="1" required>
+            <div class="topcoat-radio-button__checkmark"></div>
+            Female
+          </label>
+          <span class="pad"></span>
+          <label class="topcoat-radio-button">
+            <input type="radio" name="gender" value="0" required>
+            <div class="topcoat-radio-button__checkmark"></div>
+            Male
+          </label>
+        </div>
+
+        <fieldset class="center">
+          <legend>Vehicle</legend>
+          <select name="year" class="large" required>
+            <option value="">Year</option>
+          </select>
+          &nbsp;
+          <select name="make" class="large" required>
+            <option value="">Make</option>
+          </select>
+          &nbsp;
+          <select name="model" class="large" required>
+            <option value="">Model</option>
+          </select>
+        </fieldset>
+
+        <p class="center pad">
+          <button type="submit" class="topcoat-button">
+            Next
+            <span class="topcoat-icon icomatic">next</span>
+          </button>
+        </p>
+      </form>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-homework" class="page">
+
+      <p class="instructions">
+        Based on the In-Car activity you were asked to complete, please enter the three words you used to describe your current vehicle's infotainment system.
+      </p>
+
+      <form action="#" class="pad">
+        <p>
+          <input type="text" name="word1" size="30" class="topcoat-text-input full" placeholder="First word" value="" autocomplete="off" required>
+        </p>
+        <p>
+          <input type="text" name="word2" size="30" class="topcoat-text-input full" placeholder="Second word" value="" autocomplete="off" required>
+        </p>
+        <p>
+          <input type="text" name="word3" size="30" class="topcoat-text-input full" placeholder="Third word" value="" autocomplete="off" required>
+        </p>
+
+        <p class="center pad">
+          <button type="submit" class="topcoat-button">
+            Next
+            <span class="topcoat-icon icomatic">next</span>
+          </button>
+        </p>
+      </form>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-definition" class="page">
+
+      <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item full center">
+          <h1 class="topcoat-navigation-bar__title term"></h1>
+        </div>
+      </div>
+
+      <p class="instructions synonym">
+        Please select 3 words that BEST describe "<span class="term"></span>."
+      </p>
+      <p class="instructions antonym">
+        Please select 3 words that LEAST describe "<span class="term"></span>."
+      </p>
+
+      <div class="pad box-center-col">
+        <div class="words"></div>
+
+        <p class="center pad">
+          <button class="topcoat-button prev">
+            <span class="topcoat-icon icomatic">back</span>
+            Back
+          </button>
+          <button class="topcoat-button next">
+            Next
+            <span class="topcoat-icon icomatic">next</span>
+          </button>
+        </p>
+      </div>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-concept-intro" class="page">
+
+      <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item full center">
+          <h1 class="topcoat-navigation-bar__title concept-label"></h1>
+        </div>
+      </div>
+
+      <p class="instructions intro">
+        You will be presented with four sets of concept screens for a vehicle infotainment system that vary in color and styling. For each concept set, you will view three screens and then complete five ratings based on those screens. We would like you to give us your opinion on each set by rating them against several categories:
+      </p>
+      <ul class="instructions intro">
+        <li>Simple</li>
+        <li>Quality</li>
+        <li>Elegant</li>
+        <li>Attractive</li>
+        <li>Fun</li>
+      </ul>
+
+      <p class="instructions finished">
+        Please tap your horn to notify the survey staff that you are ready to proceed to the next concept screen.
+      </p>
+      <p class="instructions finished">
+        Thank You.
+      </p>
+
+      <p class="center">
+        <a class="topcoat-button--large next">
+          Next
+          <span class="topcoat-icon icomatic">next</span>
+        </a>
+      </p>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-concept" class="page">
+
+      <div class="img"></div>
+      <div class="prev"></div>
+      <div class="next"></div>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-ratings" class="page box-center-col">
+
+      <div class="screens pad"></div>
+      <div class="metric pad"></div>
+      <div class="ratings"></div>
+      <div class="center pad">
+        <button class="topcoat-button prev">
+          <span class="topcoat-icon icomatic">back</span>
+          Back
+        </button>
+        <button class="topcoat-button next">
+          Next
+          <span class="topcoat-icon icomatic">next</span>
+        </button>
+      </div>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-ranking" class="page">
+
+      <p class="instructions">
+        Please give your color and styling preference by ranking each set of screens (1 being your favorite and 4 being your least favorite). Do this by dragging the set of screens into the corresponding position on the right.
+      </p>
+
+      <div class="relative">
+        <div class="concepts"></div>
+        <div class="ranking"></div>
+      </div>
+
+      <div class="center pad">
+        <button class="topcoat-button next">
+          Next
+          <span class="topcoat-icon icomatic">next</span>
+        </button>
+      </div>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-weights" class="page">
+
+      <p class="instructions">
+        We would like to know which categories most important to you. Using the sliders below, please rank each category from most least important to most important. No two categories may be ranked the same.
+      </p>
+
+      <div class="weights-label">
+        <span class="f-left">Least Important</span>
+        <span class="f-right">Most Important</span>
+      </div>
+      <div class="pad">
+        <div class="weights"></div>
+        <div class="center">
+          <button class="topcoat-button next">
+            Next
+            <span class="topcoat-icon icomatic">next</span>
+          </button>
+        </div>
+      </div>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-finished" class="page box-center">
+      <div class="center">
+        Thank you,<br/>
+        <span class="name"></span>
+        <p class="instructions">
+          You have completed the survey.
+          Please notify the survey staff.
+        </p>
+      </div>
+    </div>
+
+
+    <div id="page-review" class="page scrollable">
+
+      <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item full center">
+          <h1 class="topcoat-navigation-bar__title">Review for <span class="name"></span></h1>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="wrapper">
+        <h2>Words: <span class="words"></span></h2>
+      </div>
+
+      <div class="center">
+        <a href="#" class="topcoat-button next">
+          Next
+          <span class="topcoat-icon icomatic">next</span>
+        </a>
+      </div>
+
+      <a class="pause"></a>
+    </div>
+
+
+    <div id="page-pause" class="page modal box-center">
+
+      <div class="center">
+        <div class="pad">
+          <button class="topcoat-button--large sync">
+            <span class="topcoat-icon icomatic">refresh</span>
+            Sync
+          </button>
+        </div>
+
+        <div class="pad">
+          <a href="#" class="topcoat-button--large abort">
+            <span class="topcoat-icon icomatic">cancel</span>
+            Abort
+          </a>
+        </div>
+
+        <div class="pad">
+          <button class="topcoat-button--large--cta resume">
+            <span class="topcoat-icon icomatic">back</span>
+            Resume
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div id="page-setup" class="page box-center-col modal">
+
+      <div class="pad">
+        <h1 class="center">Day</h1>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="day" value="1">
+          1
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="day" value="2">
+          2
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="day" value="3">
+          3
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+      </div>
+
+      <div class="pad">
+        <h1 class="center">Car</h1>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="car" value="1">
+          1
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="car" value="2">
+          2
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="car" value="3">
+          3
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="car" value="4">
+          4
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+        <label class="topcoat-radio-button">
+          <input type="radio" name="car" value="5">
+          5
+          <div class="topcoat-radio-button__checkmark"></div>
+        </label>
+      </div>
+
+      <div class="pad">
+        <button class="topcoat-button--large--cta resume">
+          Begin
+          <span class="topcoat-icon icomatic">next</span>
+        </button>
+      </div>
+
+    </div>
+
+    <div id="page-imgzoom" class="page modal"></div>
+
+  </body>
+</html>
