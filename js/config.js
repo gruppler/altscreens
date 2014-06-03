@@ -36,6 +36,7 @@ var config = {
 
   "metrics": [{
     "name": "Simple",
+    "text": "Please rate the design based on the following scale:",
     "options": [
       "Not Simple",
       "",
@@ -61,6 +62,7 @@ var config = {
     ]
   },{
     "name": "Quality",
+    "text": "Please rate the design based on the following scale:",
     "options": [
       "Low Quality",
       "",
@@ -86,6 +88,7 @@ var config = {
     ]
   },{
     "name": "Elegant",
+    "text": "Please rate the design based on the following scale:",
     "options": [
       "Not Elegant",
       "",
@@ -111,6 +114,7 @@ var config = {
     ]
   },{
     "name": "Fun",
+    "text": "Please rate the design based on the following scale:",
     "options": [
       "Not Fun",
       "",
@@ -136,6 +140,7 @@ var config = {
     ]
   },{
     "name": "Attractive",
+    "text": "Please rate the design based on the following scale:",
     "options": [
       "Unattractive",
       "",

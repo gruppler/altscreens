@@ -320,6 +320,7 @@ var ReviewView = Backbone.View.extend({
     _.bindAll(this, 'render');
 
     this.$el.$name = this.$('.name');
+    this.$el.$car = this.$('.car');
     this.$el.$words = this.$('.words');
 
     this.$('thead tr').append(
@@ -359,22 +360,33 @@ var ReviewView = Backbone.View.extend({
       , ratings = app.participant.get('ratings')
       , weights = app.participant.get('weights')
       , synonyms = app.participant.get('synonyms')
-      , antonyms = app.participant.get('antonyms');
+      , antonyms = app.participant.get('antonyms')
+      , make = _.keys(config.vehicles.makes)[app.participant.get('make') - 1];
 
     this.$el.$name.text(app.participant.get('name'));
 
-    this.$el.$words.text(app.participant.get('word1')+', '+app.participant.get('word2')+', '+app.participant.get('word3'));
+    this.$el.$car.text(
+      (app.participant.get('year') + config.vehicles.years[0] - 2)
+      +' '+make
+      +' '+config.vehicles.makes[make][app.participant.get('model') - 1]
+    );
+
+    this.$el.$words.text(
+      app.participant.get('word1')
+      +', '+app.participant.get('word2')
+      +', '+app.participant.get('word3')
+    );
 
     _.each(config.metrics, function(metric){
       that.$('.is-'+metric.id).html(
         _.map(synonyms[metric.id], function(word){
           return metric.words[word];
-        }).join(',<br/>')
+        }).join('<br/>')
       );
       that.$('.isnot-'+metric.id).html(
         _.map(antonyms[metric.id], function(word){
           return metric.words[word];
-        }).join(',<br/>')
+        }).join('<br/>')
       );
     });
 

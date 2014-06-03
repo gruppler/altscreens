@@ -55,6 +55,14 @@ ul.instructions {
   margin: 1.5rem auto;
   text-align: justify;
 }
+p.instructions.center,
+ul.instructions.center {
+  text-align: center;
+}
+p.instructions.big,
+ul.instructions.big {
+  font-size: 2rem;
+}
 
 .page {
   min-height: 100%;
@@ -108,6 +116,14 @@ img.thumb {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
+.topcoat-navigation-bar + .box-center,
+.topcoat-navigation-bar + .box-center-col {
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 .fullscreen-image {
   position: absolute;
@@ -137,7 +153,8 @@ legend {
   margin-left: 0.5em;
 }
 
-.pause {
+.pause,
+.enable-next {
   position: absolute;
   top: 0;
   right: 0;
@@ -145,6 +162,10 @@ legend {
   height: 8em;
   display: block !important;
   z-index: 200;
+}
+.enable-next {
+  top: auto;
+  bottom: 0;
 }
 #page-setup {
   z-index: 400;
@@ -296,6 +317,7 @@ legend {
   text-align: center;
   vertical-align: top;
   cursor: pointer;
+  font-size: 2rem;
 }
 .ratings .option .selector {
   display: block;
@@ -340,6 +362,9 @@ legend {
   height: auto;
   width: 33.33%;
 }
+#page-ranking .concepts img.thumb + img.thumb {
+  border-left: 1px solid #000;
+}
 
 #page-ranking .ranking {
   position: absolute;
@@ -349,6 +374,7 @@ legend {
 #page-ranking .draggable {
   margin: 0 auto;
   z-index: 1;
+  white-space: nowrap;
 }
 #page-ranking .draggable.dragging {
   z-index: 2;
@@ -368,13 +394,13 @@ legend {
   text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
   font-size: 5em;
 }
+#page-ranking .droppable.filled {
+  border: 2px solid #333;
+}
 #page-ranking .droppable.hovered {
   border: 2px solid #ddd;
   background-color: #888;
   color: #ddd;
-}
-#page-ranking .droppable.filled {
-  border: 2px solid #333;
 }
 
 #page-ranking p.instructions,
@@ -430,6 +456,7 @@ legend {
   background-color: #666;
   border: 1px solid #333;
 }
+#page-review .car,
 #page-review .words {
   font-weight: normal;
   font-size: 0.8em;

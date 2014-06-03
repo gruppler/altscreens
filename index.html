@@ -45,7 +45,7 @@
     </div>
 
 
-    <div id="page-intro" class="page">
+    <div id="page-intro" class="page box-center-col">
 
       <p class="instructions">
         Thank you for participating in our survey today!
@@ -70,7 +70,7 @@
     </div>
 
 
-    <div id="page-new-participant" class="page">
+    <div id="page-new-participant" class="page box-center-col">
 
       <p class="instructions">
         Please provide the following information.
@@ -201,31 +201,35 @@
         </div>
       </div>
 
-      <p class="instructions intro">
-        You will be presented with four sets of concept screens for a vehicle infotainment system that vary in color and styling. For each concept set, you will view three screens and then complete five ratings based on those screens. We would like you to give us your opinion on each set by rating them against several categories:
-      </p>
-      <ul class="instructions intro">
-        <li>Simple</li>
-        <li>Quality</li>
-        <li>Elegant</li>
-        <li>Attractive</li>
-        <li>Fun</li>
-      </ul>
+      <div class="box-center-col">
+        <p class="instructions big first">
+          You will be presented with four sets of concept screens for a vehicle infotainment system that vary in color and styling. For each concept set, you will view three screens and then complete five ratings based on those screens. We would like you to give us your opinion on each set by rating them against the following categories:
+        </p>
+        <ul class="instructions first">
+          <li>Simple</li>
+          <li>Quality</li>
+          <li>Elegant</li>
+          <li>Attractive</li>
+          <li>Fun</li>
+        </ul>
 
-      <p class="instructions finished">
-        Please tap your horn to notify the survey staff that you are ready to proceed to the next concept screen.
-      </p>
-      <p class="instructions finished">
-        Thank You.
-      </p>
+        <p class="instructions big repeat">
+          Please tap your horn and wave to notify the survey staff that you are ready to proceed to the next concept screen.
+        </p>
 
-      <p class="center">
-        <a class="topcoat-button--large next">
-          Next
-          <span class="topcoat-icon icomatic">next</span>
-        </a>
-      </p>
+        <p class="instructions big last">
+          Please look up at the non-interactive display.
+        </p>
 
+        <p class="center">
+          <button class="topcoat-button--large next">
+            Next
+            <span class="topcoat-icon icomatic">next</span>
+          </button>
+        </p>
+      </div>
+
+      <a class="enable-next repeat"></a>
       <a class="pause"></a>
     </div>
 
@@ -240,20 +244,31 @@
     </div>
 
 
-    <div id="page-ratings" class="page box-center-col">
+    <div id="page-ratings" class="page">
 
-      <div class="screens pad"></div>
-      <div class="metric pad"></div>
-      <div class="ratings"></div>
-      <div class="center pad">
-        <button class="topcoat-button prev">
-          <span class="topcoat-icon icomatic">back</span>
-          Back
-        </button>
-        <button class="topcoat-button next">
-          Next
-          <span class="topcoat-icon icomatic">next</span>
-        </button>
+      <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item full center">
+          <h1 class="topcoat-navigation-bar__title concept-label"></h1>
+        </div>
+      </div>
+
+      <div class="box-center-col">
+        <p class="instructions big intro center">
+          Tap an image to enlarge it.
+        </p>
+        <div class="screens pad"></div>
+        <div class="metric pad"></div>
+        <div class="ratings"></div>
+        <div class="center pad">
+          <button class="topcoat-button prev">
+            <span class="topcoat-icon icomatic">back</span>
+            Back
+          </button>
+          <button class="topcoat-button next">
+            Next
+            <span class="topcoat-icon icomatic">next</span>
+          </button>
+        </div>
       </div>
 
       <a class="pause"></a>
@@ -263,7 +278,7 @@
     <div id="page-ranking" class="page">
 
       <p class="instructions">
-        Please give your color and styling preference by ranking each set of screens (1 being your favorite and 4 being your least favorite). Do this by dragging the set of screens into the corresponding position on the right.
+        Please give your color and styling preference by ranking each set of screens (1 being your favorite and 4 being your least favorite). Do this by dragging the set of screens into the corresponding position on the right. Tap an image to enlarge it.
       </p>
 
       <div class="relative">
@@ -334,6 +349,7 @@
       </table>
 
       <div class="wrapper">
+        <h2>Car: <span class="car"></span></h2>
         <h2>Words: <span class="words"></span></h2>
       </div>
 

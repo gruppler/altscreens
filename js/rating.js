@@ -5,6 +5,7 @@ var RatingView = Backbone.View.extend({
     _.bindAll(this, 'render', 'select_rating', 'submit', 'prev', 'next');
 
     this.$el.$screens = this.$('.screens');
+    this.$el.$label = this.$('.concept-label');
     this.$el.$metric = this.$('.metric');
     this.$el.$rating = this.$('.ratings');
     this.$el.$back = this.$('.prev');
@@ -27,7 +28,8 @@ var RatingView = Backbone.View.extend({
 
     this.$el.$screens.empty().append(this.model.concept.config.img);
 
-    this.$el.$metric.text(this.model.metric.name);
+    this.$el.$label.text(this.model.metric.name);
+    this.$el.$metric.text(this.model.metric.text);
 
     this.$el.$rating.html(
       '<div class="rating scale-'+options.length+'" id="'+metric.id+'">'
@@ -106,7 +108,7 @@ var RankingView = Backbone.View.extend({
       , rankings = _.where(app.participant.get('ratings'), {1: 0})
       , container_width = this.$el.$concepts.width()
       , width = Math.round(app.view.$el.width()*0.44)
-      , height = Math.round(width/(3*config.screens.aspect))
+      , height = Math.round((width)/(3*config.screens.aspect))
       , left = ((container_width - width)/2);
 
     this.$el.$concepts.empty();
@@ -126,7 +128,7 @@ var RankingView = Backbone.View.extend({
       that.$el.$concepts.append($('<div class="draggable">').append(concept.img).data('rating', rating));
 
       that.$el.$ranking.append($('<div class="droppable">'+(cid+1)+'</div>').css({
-        width: width,
+        width: width + 2,
         height: height,
         lineHeight: height+'px'
       }).data('rank', cid + 1));

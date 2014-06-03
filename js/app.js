@@ -301,20 +301,33 @@ $(function(){
         el: '#page-concept-intro',
         render: function(){
           this.$('.concept-label').text(app.concept.name);
+          this.$('.last').hide();
           if(app.cid == 1){
-            this.$('.intro').show();
-            this.$('.finished').hide();
+            this.$('.first').show();
+            this.$('.repeat').hide();
+            this.$('.next').prop('disabled', false);
           }else{
-            this.$('.intro').hide();
-            this.$('.finished').show();
+            this.$('.first').hide();
+            this.$('.repeat').show();
+            this.$('.next').prop('disabled', true);
           }
         },
         events: {
           'show': 'render',
-          'tap .next': 'next'
+          'tap .next': 'next',
+          'hold .enable-next': 'enable_next'
         },
         next: function(){
-          app.router.go('ratings/'+app.pid+'/'+app.cid+'/0');
+          if(!this.$('.last').is(':visible')){
+            this.$('.first').hide();
+            this.$('.repeat').hide();
+            this.$('.last').show();
+          }else{
+            app.router.go('ratings/'+app.pid+'/'+app.cid+'/0');
+          }
+        },
+        enable_next: function(event){
+          this.$('.next').prop('disabled', false);
         }
       }))();
 
